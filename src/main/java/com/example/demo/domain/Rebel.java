@@ -20,8 +20,8 @@ public class Rebel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String firstname;
-	private String lastname;
+	private String RebelFullName;
+	private String planetName;
 	private Date dateCreated = new Date();
 	
 	public Rebel() {
@@ -37,21 +37,21 @@ public class Rebel {
 	}
 	@Override
 	public String toString() {
-		return "Rebel [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", dateCreated="
+		return "Rebel [id=" + id + ", firstname=" + RebelFullName + ", lastname=" + planetName + ", dateCreated="
 				+ dateCreated + "]";
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public String getRebelFullName() {
+		return RebelFullName;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setRebelFullName(String firstname) {
+		this.RebelFullName = firstname;
 	}
-	public String getLastname() {
-		return lastname;
+	public String getPlanet() {
+		return planetName;
 	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setPlanet(String lastname) {
+		this.planetName = lastname;
 	}
 
 	public Date getDateCreated() {
