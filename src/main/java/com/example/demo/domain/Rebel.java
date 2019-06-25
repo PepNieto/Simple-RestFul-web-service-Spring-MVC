@@ -11,7 +11,7 @@ import javax.persistence.Id;
 
 
 @Entity
-public class Customer {
+public class Rebel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
