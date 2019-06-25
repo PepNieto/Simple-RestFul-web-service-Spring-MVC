@@ -22,7 +22,8 @@ public class BootStrapData implements CommandLineRunner{
 		c1.setFirstname("Michael");
 		c1.setLastname("Weston");
 		rebelRepository.save(c1);
-		
+		System.out.println(c1.toString());
+		System.out.println("**************************************");
 		Rebel c2 = new Rebel();
 		c2.setFirstname("Sam");
 		c2.setLastname("Axe");
