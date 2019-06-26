@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.example.demo.domain.Rebel;
 import com.example.demo.repositories.RebelRepository;
 
+import exceptionhandling.ResourceNotFoundException;
+
 @Service
 public class RebelServiceImpl implements RebelService{
 
@@ -17,24 +19,30 @@ public class RebelServiceImpl implements RebelService{
 		this.rebelRepository = rebelRepository;
 	}
 	@Override
-	public Rebel findRebelByID(long id) throws Exception {
+	public Rebel findRebelByID(long id) throws ResourceNotFoundException  {
 		
 		//log4j.info (------ INIT findRebelByID -------);
 		// TODO Auto-generated method stub
+		Rebel rebel = null;
 		
 		try {
-			return rebelRepository.findById(id).get();
+			rebel = rebelRepository.findById(id).get();
 		} catch (Exception e) {
+			
 			// log4j.error("mensaje error) TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("catch from impl");
+			//
+			//throw new ResourceNotFoundException("mensajessss");
+			// e.printStackTrace();
 		}
 		
-		if(rebelRepository.findById(id).get() == null) {
+		return rebel;
+		//if(rebelRepository.findById(id).get() == null) {
 			//log
 			
-		}
+		//}
 		//log4j.info (------ END findRebelByID -------);
-		return rebelRepository.findById(id).get();
+		//return rebelRepository.findById(id).get();
 	}
 
 	@Override

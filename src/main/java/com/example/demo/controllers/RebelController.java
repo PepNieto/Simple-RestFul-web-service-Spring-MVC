@@ -45,9 +45,7 @@ public class RebelController {
 	if(userID < 0) {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 	}
-	if(rebelService == null) {
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-	}
+	
 	
 	Rebel rebel = new Rebel();
 		try {
@@ -59,7 +57,11 @@ public class RebelController {
 			System.out.println("BAAAAAAAAAAADDDDDDD REQUEST ********");
 			return new ResponseEntity<Rebel>(HttpStatus.BAD_REQUEST);
 		}
+	
 		
+		if(rebel == null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
 		return new ResponseEntity(rebel, HttpStatus.OK);
 	}
 	
