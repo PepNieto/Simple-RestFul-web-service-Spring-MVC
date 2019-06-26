@@ -19,19 +19,19 @@ public class BootStrapData implements CommandLineRunner{
 		
 		System.out.println("Loading Customer Data");
 		Rebel c1 = new Rebel();
-		c1.setRebelFullName("Michael");
-		c1.setPlanet("Weston");
+		c1.setRebelFullName("Han Solo");
+		c1.setPlanet("Mustafar");
 		rebelRepository.save(c1);
 		System.out.println(c1.toString());
 		System.out.println("**************************************");
 		Rebel c2 = new Rebel();
-		c2.setRebelFullName("Sam");
-		c2.setPlanet("Axe");
+		c2.setRebelFullName("Ashoka");
+		c2.setPlanet("Coruscant");
 		rebelRepository.save(c2);
 	
 		Rebel c3 = new Rebel();
-		c3.setRebelFullName("Fiona");
-		c3.setPlanet("Shrek");
+		c3.setRebelFullName("Spock");
+		c3.setPlanet("Vulca");
 		rebelRepository.save(c3);
 		
 		System.out.println("Rebel Saved " + rebelRepository.count());

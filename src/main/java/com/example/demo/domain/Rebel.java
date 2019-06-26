@@ -1,9 +1,5 @@
 package com.example.demo.domain;
 
-import lombok.Data;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;

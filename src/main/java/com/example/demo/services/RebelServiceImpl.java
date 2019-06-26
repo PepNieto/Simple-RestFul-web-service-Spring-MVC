@@ -17,8 +17,27 @@ public class RebelServiceImpl implements RebelService{
 		this.rebelRepository = rebelRepository;
 	}
 	@Override
-	public Rebel findRebelByID(long id) {
+	public Rebel findRebelByID(long id) throws Exception {
+		
+		//log4j.info (------ INIT findRebelByID -------);
 		// TODO Auto-generated method stub
+		
+		try {
+			return rebelRepository.findById(id).get();
+		} catch (Exception e) {
+			// log4j.error("mensaje error) TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(rebelRepository.findById(id).get() == null) {
+			//log
+			
+		}
+		   
+		
+
+		//log4j.info (------ END findRebelByID -------);
+		
 		return rebelRepository.findById(id).get();
 	}
 
