@@ -1,5 +1,7 @@
 package com.example.demo.bootstrap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -8,7 +10,7 @@ import com.example.demo.repositories.RebelRepository;
 
 @Component
 public class BootStrapData implements CommandLineRunner{
-
+	private static final Logger logger = LogManager.getLogger(BootStrapData.class.getName());
 	private final RebelRepository rebelRepository;
 	
 	public BootStrapData(RebelRepository rebelRepository) {
@@ -17,6 +19,9 @@ public class BootStrapData implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception{
 		
+		logger.info("*****  Starting APi REST OF REBELS   *******");
+		
+
 		System.out.println("Loading Customer Data");
 		Rebel c1 = new Rebel();
 		c1.setRebelFullName("Han Solo");

@@ -2,9 +2,12 @@ package com.example.demo.services;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.bootstrap.BootStrapData;
 import com.example.demo.domain.Rebel;
 import com.example.demo.repositories.RebelRepository;
 
@@ -12,10 +15,11 @@ import exceptionhandling.ResourceNotFoundException;
 
 @Service
 public class RebelServiceImpl implements RebelService{
-
+	private static final Logger logger = LogManager.getLogger(BootStrapData.class.getName());
 	private final RebelRepository rebelRepository;
-	
+
 	public RebelServiceImpl(RebelRepository rebelRepository) {
+
 		this.rebelRepository = rebelRepository;
 	}
 	@Override
@@ -26,23 +30,18 @@ public class RebelServiceImpl implements RebelService{
 		Rebel rebel = null;
 		
 		try {
+			logger.info("Client used findRebelById Successfully");
 			rebel = rebelRepository.findById(id).get();
 		} catch (Exception e) {
 			
-			// log4j.error("mensaje error) TODO Auto-generated catch block
+			logger.error("While using findRebelById");
 			System.out.println("catch from impl");
-			//
-			//throw new ResourceNotFoundException("mensajessss");
 			// e.printStackTrace();
 		}
 		
-		return rebel;
-		//if(rebelRepository.findById(id).get() == null) {
-			//log
-			
-		//}
-		//log4j.info (------ END findRebelByID -------);
-		//return rebelRepository.findById(id).get();
+		
+		logger.info("*****  END findRebelByID   *******");
+		return rebel;		
 	}
 
 	@Override
