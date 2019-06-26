@@ -33,11 +33,14 @@ public class RebelController {
 		
 	}
 	@GetMapping("/{id}") 
-	public ResponseEntity<RebelService> getRebelById(@PathVariable Long id) {
-	if(id < 0) {
-		//log4j("comment");
-		System.out.println("badrequest***************");
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+	public ResponseEntity<?> getRebelById(@PathVariable String id) throws Exception {
+	Long userID;
+	
+	try{
+		 userID = Long.parseLong(id);
+	}catch(Exception e){
+		
+		return ResponseEntity.status(HttpStatus.ACCEPTED).build();
 	}
 	if(rebelService == null) {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -45,15 +48,16 @@ public class RebelController {
 	
 	Rebel rebel = new Rebel();
 		try {
-			rebel = rebelService.findRebelByID(id);
+			rebel = rebelService.findRebelByID(userID);
 		} catch (Exception e) {
 			
 			// TODO Auto-generated catch block
 			e.printStackTrace();	
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+			System.out.println("BAAAAAAAAAAADDDDDDD REQUEST ********");
+			return new ResponseEntity<Rebel>(HttpStatus.BAD_REQUEST);
 		}
 		
-		return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+		return new ResponseEntity(rebel, HttpStatus.OK);
 	}
 	
 	@PostMapping

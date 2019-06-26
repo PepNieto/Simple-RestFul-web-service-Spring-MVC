@@ -33,11 +33,7 @@ public class RebelServiceImpl implements RebelService{
 			//log
 			
 		}
-		   
-		
-
 		//log4j.info (------ END findRebelByID -------);
-		
 		return rebelRepository.findById(id).get();
 	}
 

@@ -31,7 +31,7 @@ public class BootStrapData implements CommandLineRunner{
 	
 		Rebel c3 = new Rebel();
 		c3.setRebelFullName("Spock");
-		c3.setPlanet("Vulca");
+		c3.setPlanet("Vulca");z
 		rebelRepository.save(c3);
 		
 		System.out.println("Rebel Saved " + rebelRepository.count());
