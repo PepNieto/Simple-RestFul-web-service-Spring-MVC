@@ -40,7 +40,10 @@ public class RebelController {
 		 userID = Long.parseLong(id);
 	}catch(Exception e){
 		
-		return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+	}
+	if(userID < 0) {
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 	}
 	if(rebelService == null) {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
