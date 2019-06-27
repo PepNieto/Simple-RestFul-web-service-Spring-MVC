@@ -54,9 +54,5 @@ public class Rebel {
 		return dateCreated;
 	}
 
-//	public void setDateCreated(Date dateCreated) {
-//		this.dateCreated = dateCreated;
-//	}
 
-	
 }
