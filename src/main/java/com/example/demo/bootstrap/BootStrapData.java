@@ -40,5 +40,6 @@ public class BootStrapData implements CommandLineRunner{
 		rebelRepository.save(c3);
 		
 		System.out.println("Rebel Saved " + rebelRepository.count());
+		logger.info("*****  Loaded 3 Example Rebels  *******");
 	}
 }

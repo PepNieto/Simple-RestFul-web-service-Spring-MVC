@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.http.HttpMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -64,7 +65,7 @@ public class RebelController {
 	
 		
 		if(rebel == null) {
-			logger.warn("Rebel was found null");
+			logger.warn("Returned a null object");
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		return new ResponseEntity(rebel, HttpStatus.OK);
