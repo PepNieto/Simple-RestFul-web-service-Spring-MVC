@@ -8,9 +8,9 @@ public interface RebelService {
 
 	Rebel findRebelByID(long id) throws Exception;
 	
-	List<Rebel> findAllRebels();
+	List<Rebel> getAllRebels() throws Exception;
 
 
-	Rebel saveRebel(Rebel rebel);
+	Rebel saveRebel(Rebel rebel) throws Exception;
 
 }

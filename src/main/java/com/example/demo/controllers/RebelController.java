@@ -32,9 +32,13 @@ public class RebelController {
 		
 	@GetMapping
 	List<Rebel> getAllRebels(){
-		
-		return  rebelService.findAllRebels();
-		
+		try {
+		return  rebelService.getAllRebels();
+		}
+		catch(Exception e){
+			
+			return (List<Rebel>) ResponseEntity.status(HttpStatus.NOT_FOUND);
+		}
 	}
 	@GetMapping("/{id}") 
 	public ResponseEntity<?> getRebelById(@PathVariable String id) throws Exception {
@@ -73,7 +77,7 @@ public class RebelController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Rebel saveRebel(@RequestBody Rebel rebel) {
+	public Rebel saveRebel(@RequestBody Rebel rebel) throws Exception {
 		System.out.println("True");
 		logger.info("Created a new Rebel");
 		return rebelService.saveRebel(rebel);

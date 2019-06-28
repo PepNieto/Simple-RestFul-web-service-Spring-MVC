@@ -45,7 +45,7 @@ public class RebelServiceImpl implements RebelService{
 	}
 
 	@Override
-	public List<Rebel> findAllRebels() { 
+	public List<Rebel> getAllRebels() { 
 		// TODO Auto-generated method stub
 		return rebelRepository.findAll();
 	}
@@ -53,5 +53,6 @@ public class RebelServiceImpl implements RebelService{
 	public Rebel saveRebel(Rebel rebel) {
 		// TODO Auto-generated method stub
 		return rebelRepository.save(rebel);
-	} 
+	}
+
 }
